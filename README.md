@@ -31,13 +31,13 @@ public class MyServiceConfiguration {
 
     // Method name (bean name) must be uniq
     @Bean
-    public CacheObject getMyCache(@Value("${my.cache.expire:10}") int expire,
+    public AxCacheObject getMyCache(@Value("${my.cache.expire:10}") int expire,
                                      @Value("${my.cache.size:10000}") int size)
     {
-        return CacheObject
+        return AxCacheObject
                 .builder()
-                .configuration(new CacheObject.CacheObjectConfiguration(MY_CACHE, 
-                               CacheObject.ExpireType.Write, 
+                .configuration(new AxCacheObject.CacheObjectConfiguration(MY_CACHE, 
+                               AxCacheObject.ExpireType.Write, 
                                expire, 
                                size))
                 .build();
