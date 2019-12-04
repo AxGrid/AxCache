@@ -10,7 +10,7 @@ Install
 
 <dependency>
     <groupId>com.axgrid</groupId>
-    <artifactId>AxCahce</artifactId>
+    <artifactId>AxCache</artifactId>
     <version>1.1</version>
 </dependency>
 
