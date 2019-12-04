@@ -31,15 +31,15 @@ public class MyServiceConfiguration {
 
     // Method name (bean name) must be uniq
     @Bean
-    public CacheObject getMyCache(@Value("${my.cache.expire:10}") int userExpireAfterAccess,
-                                     @Value("${my.cache.size:10000}") int userSize)
+    public CacheObject getMyCache(@Value("${my.cache.expire:10}") int expire,
+                                     @Value("${my.cache.size:10000}") int size)
     {
         return CacheObject
                 .builder()
                 .configuration(new CacheObject.CacheObjectConfiguration(MY_CACHE, 
                                CacheObject.ExpireType.Write, 
-                               userExpireAfterAccess, 
-                               userSize))
+                               expire, 
+                               size))
                 .build();
     }
 }
