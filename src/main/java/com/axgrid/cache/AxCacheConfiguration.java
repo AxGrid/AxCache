@@ -43,7 +43,7 @@ public class AxCacheConfiguration {
     }
 
     private CaffeineCache buildAccessExpireCache(AxCacheObject.CacheObjectConfiguration cacheObject) {
-        log.info("Create Access-Expire cache {}", cacheObject);
+        if (log.isDebugEnabled()) log.debug("Create Access-Expire cache {}", cacheObject);
         return new CaffeineCache(cacheObject.getName(), Caffeine.newBuilder()
                 .expireAfterAccess(cacheObject.getSecondToExpire(), TimeUnit.SECONDS)
                 .maximumSize(cacheObject.getSize())
@@ -52,7 +52,7 @@ public class AxCacheConfiguration {
     }
 
     private CaffeineCache buildWriteExpireCache(AxCacheObject.CacheObjectConfiguration cacheObject) {
-        log.info("Create Write-Expire cache {}", cacheObject);
+        if (log.isDebugEnabled()) log.debug("Create Write-Expire cache {}", cacheObject);
         return new CaffeineCache(cacheObject.getName(), Caffeine.newBuilder()
                 .expireAfterWrite(cacheObject.getSecondToExpire(), TimeUnit.SECONDS)
                 .maximumSize(cacheObject.getSize())
